@@ -194,6 +194,13 @@ void update7SEG ( int index ){
 	}
 }
 
+void updateClockBuffer(int hour, int min) {
+	led_buffer[0] = hour / 10;
+	led_buffer[1] = hour % 10;
+	led_buffer[2] = min / 10;
+	led_buffer[3] = min % 10;
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -232,9 +239,26 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, GPIO_PIN_RESET);
+  int hour = 15 , minute = 8 , second = 50;
   while (1)
   {
     /* USER CODE END WHILE */
+	  second++;
+	  if (second >= 60) {
+		  second = 0;
+		  minute++;
+	  }
+	  if( minute >= 60) {
+		  minute = 0;
+		  hour++;
+	  }
+	  if( hour >=24){
+		  hour = 0;
+	  }
+	  updateClockBuffer(hour, minute);
+
+	  HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */
   }
