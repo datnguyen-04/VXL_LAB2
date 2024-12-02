@@ -72,7 +72,9 @@ void Error_Handler(void);
 #define SEG_b_GPIO_Port GPIOB
 #define SEG_c_Pin GPIO_PIN_2
 #define SEG_c_GPIO_Port GPIOB
-#define EN3_Pin GPIO_PIN_8
+#define EN2_Pin GPIO_PIN_8
+#define EN2_GPIO_Port GPIOA
+#define EN3_Pin GPIO_PIN_9
 #define EN3_GPIO_Port GPIOA
 #define SEG_d_Pin GPIO_PIN_3
 #define SEG_d_GPIO_Port GPIOB
@@ -82,8 +84,6 @@ void Error_Handler(void);
 #define SEG_f_GPIO_Port GPIOB
 #define SEG_g_Pin GPIO_PIN_6
 #define SEG_g_GPIO_Port GPIOB
-#define EN2_Pin GPIO_PIN_7
-#define EN2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
