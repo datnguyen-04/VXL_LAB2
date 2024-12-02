@@ -226,7 +226,7 @@ void timer_run () {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-//to do ex7
+//to do ex8
 
   /* USER CODE END 1 */
 
