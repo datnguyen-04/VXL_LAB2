@@ -210,7 +210,7 @@ void updateClockBuffer(int hour, int min) {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-//to do ex5
+//to do ex6
 
   /* USER CODE END 1 */
 
