@@ -363,24 +363,24 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter = 200;
+int counter = 100;
 int led = 0;
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 {
-	if (counter == 200) {
+	if (counter == 100) {
 		update7SEG(led++);
-	} else if(counter == 150) {
+		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	} else if(counter == 75) {
 		update7SEG(led++);
-	} else if (counter == 100) {
-		update7SEG(led++);
-        HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 	} else if (counter == 50) {
+		update7SEG(led++);
+	} else if (counter == 25) {
 		update7SEG(led++);
 	}
 
 	if (!(led < MAX_LED)) led = 0;
 
-	counter = (counter > 0) ? counter-1 : 200;
+	counter = (counter > 0) ? counter-1 : 100;
 
 }
 /* USER CODE END 4 */
