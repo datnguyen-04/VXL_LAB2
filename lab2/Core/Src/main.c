@@ -82,6 +82,12 @@ void updateLEDMatrix(int index) {
     }
 }
 
+void shiftLeft(uint8_t* matrix) {
+    for (int i = 0; i < 8; i++) {
+        matrix[i] = (matrix[i] << 1);
+    }
+}
+
 
 int timer0_counter = 0;
 int timer0_flag = 0;
@@ -91,10 +97,22 @@ void setTimer0 ( int duration ) {
 	timer0_flag = 0;
 }
 
+int timer1_counter = 0;
+int timer1_flag = 0;
+void setTimer1 ( int duration ) {
+	timer1_counter = duration / TIMER_CYCLE ;
+	timer1_flag = 0;
+}
+
 void timer_run () {
 	if( timer0_counter > 0) {
 		timer0_counter --;
 		if( timer0_counter == 0) timer0_flag = 1;
+	}
+
+	if( timer1_counter > 0) {
+		timer1_counter --;
+		if( timer1_counter == 0) timer1_flag = 1;
 	}
 }
 
@@ -139,9 +157,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   setTimer0(80);
+  setTimer1(1000);
   while (1)
   {
     /* USER CODE END WHILE */
+	  if ( timer1_flag == 1 ) {
+		  shiftLeft(matrix_buffer);
+		  setTimer1(1000);
+	  }
 	  if ( timer0_flag == 1 ) {
 		  updateLEDMatrix(index_led_matrix++);
 		  setTimer0(80/MAX_LED_MATRIX);
