@@ -203,7 +203,7 @@ void update7SEG ( int index ){
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-//to do ex3
+//to do ex4
 
   /* USER CODE END 1 */
 
