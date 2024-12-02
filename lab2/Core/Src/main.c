@@ -161,7 +161,7 @@ void display7SEG(int num) {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-//to do ex2
+//to do ex3
 
   /* USER CODE END 1 */
 
